@@ -38,7 +38,7 @@ class LinkedList(object):
             previousNode.nextNode = currentNode.nextNode
 
     # O(1)
-    def size(self):
+    def size1(self):
         return self.size
 
     # O(N)
@@ -57,7 +57,6 @@ class LinkedList(object):
         self.size = self.size + 1
         newNode = Node(data)
         actualNode = self.head
-        print(newNode)
         while actualNode.nextNode is not None:
             actualNode = actualNode.nextNode
 
@@ -75,5 +74,9 @@ newLinkedList.InsertAtStart(12)
 newLinkedList.InsertAtStart(30)
 newLinkedList.InsertAtStart(29)
 newLinkedList.insertAtEnd(31)
+print(newLinkedList.size1())
 
-newLinkedList.traverseList()
+newLinkedList.remove(12)
+
+# newLinkedList.traverseList()
+print(newLinkedList.size1())
