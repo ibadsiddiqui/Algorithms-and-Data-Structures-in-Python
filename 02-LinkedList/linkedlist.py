@@ -10,12 +10,15 @@ class LinkedList(object):
         self.headd = None
         self.size = 0
 
-        # O(1)
-        def InsertAtStart(self, data):
-            self.size = self.size + 1
-            newNode = Node(data)
-            if not self.head:
-                self.head = newNode
-            else:
-                newNode.nextNode = self.head
-                self.head = newNode
+    # O(1)
+    def InsertAtStart(self, data):
+        self.size = self.size + 1
+        newNode = Node(data)
+        if not self.head:
+            self.head = newNode
+        else:
+            newNode.nextNode = self.head
+            self.head = newNode
+
+    def size(self):
+        return self.size
