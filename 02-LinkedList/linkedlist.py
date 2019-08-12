@@ -20,5 +20,17 @@ class LinkedList(object):
             newNode.nextNode = self.head
             self.head = newNode
 
+    # O(1)
     def size(self):
         return self.size
+
+    # O(N)
+    def size2(self):
+        actualNode = self.head
+        size = 0
+
+        while actualNode is not None:
+            size += 1
+            actualNode = actualNode.nextNode
+
+        return size
