@@ -1,13 +1,12 @@
 class Node(object):
     def __init__(self, data):
-        super(Node, self).__init__(data)
         self.data = data
+        self.nextNode = None
 
 
 class LinkedList(object):
-    def __init__(self, ):
-        super(LinkedList, self).__init__()
-        self.headd = None
+    def __init__(self):
+        self.head = None
         self.size = 0
 
     # O(1)
@@ -19,6 +18,24 @@ class LinkedList(object):
         else:
             newNode.nextNode = self.head
             self.head = newNode
+
+    def remove(self, data):
+
+        if self.head is None:
+            return
+        self.size = self.size - 1
+
+        currentNode = self.head
+        previousNode = None
+
+        while currentNode.data != data:
+            previousNode = currentNode
+            currentNode = currentNode.nextNode
+
+        if previousNode is None:
+            self.head = currentNode.nextNode
+        else:
+            previousNode.nextNode = currentNode.nextNode
 
     # O(1)
     def size(self):
@@ -34,3 +51,29 @@ class LinkedList(object):
             actualNode = actualNode.nextNode
 
         return size
+
+    # O(N)
+    def insertAtEnd(self, data):
+        self.size = self.size + 1
+        newNode = Node(data)
+        actualNode = self.head
+        print(newNode)
+        while actualNode.nextNode is not None:
+            actualNode = actualNode.nextNode
+
+        actualNode.nextNode = newNode
+
+    def traverseList(self):
+        actualNode = self.head
+        while actualNode is not None:
+            print("%d" % actualNode.data)
+            actualNode = actualNode.nextNode
+
+
+newLinkedList = LinkedList()
+newLinkedList.InsertAtStart(12)
+newLinkedList.InsertAtStart(30)
+newLinkedList.InsertAtStart(29)
+newLinkedList.insertAtEnd(31)
+
+newLinkedList.traverseList()
